@@ -1,0 +1,40 @@
+public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        } else {
+            int reverse = 0;
+            for (int x1 = x; x1 != 0; x1 /= 10) {
+                reverse *= 10;
+                reverse += x1 % 10;
+            }
+
+            if (reverse == x) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+}
+
+
+
+// 2nd Approach by converting it into string
+class Solution {
+    public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        }
+        String str = Integer.toString(x);
+        int n = str.length();
+        int count = 0;
+        int a = 0;
+        int b = n-1;
+        while (count < n/2) {
+            if (str.charAt(a++) != str.charAt(b--)) return false;
+            count ++;
+        }
+        return true;
+
+    }
+}
